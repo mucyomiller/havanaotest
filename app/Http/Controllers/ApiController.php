@@ -11,9 +11,9 @@ class ApiController extends Controller
  if($request->isMethod('POST')){
     $token = env('API_TOKEN');
 ///
-$curl = \curl_init();
+$curl = curl_init();
 
-\curl_setopt_array($curl, array(
+curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.havanao.com/api/sale/purchase?api_token={$token}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
@@ -27,10 +27,10 @@ $curl = \curl_init();
   ),
 ));
 
-$response = \curl_exec($curl);
-$err = \curl_error($curl);
+$response = curl_exec($curl);
+$err = curl_error($curl);
 
-\curl_close($curl);
+curl_close($curl);
 
 if ($err) {
   echo "cURL Error #:" . $err;
