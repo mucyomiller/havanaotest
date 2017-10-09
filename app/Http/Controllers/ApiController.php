@@ -11,7 +11,7 @@ class ApiController extends Controller
  if($request->isMethod('POST')){
     $token = env('API_TOKEN');
 ///
-$curl = curl_init();
+$curl = \curl_init();
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.havanao.com/api/sale/purchase?api_token={$token}",
